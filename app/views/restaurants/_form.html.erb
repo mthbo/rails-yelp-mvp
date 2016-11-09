@@ -1,0 +1,10 @@
+<%= simple_form_for(@restaurant) do |f| %>
+  <%= f.error_notification message: 'Please fill all the fields below' %>
+
+  <%= f.input :name, placeholder: "Chez Michel" %>
+  <%= f.input :address, placeholder: "1 place de la bouffe" %>
+  <%= f.input :category, collection: @category, prompt: "Select" %>
+  <%= f.input :phone_number, placeholder: "06 XX XX XX XX" %>
+
+  <%= f.button :submit %>
+<% end %>

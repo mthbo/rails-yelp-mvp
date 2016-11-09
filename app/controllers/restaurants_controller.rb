@@ -1,5 +1,7 @@
 class RestaurantsController < ApplicationController
 
+  CATEGORY = ["chinese", "italian", "japanese", "french", "belgian"]
+
   before_action :find_restaurant, only: [:show]
 
   def index
@@ -11,6 +13,7 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    @category = CATEGORY
     @restaurant = Restaurant.new
   end
 

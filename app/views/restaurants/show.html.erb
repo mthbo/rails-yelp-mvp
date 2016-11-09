@@ -16,15 +16,17 @@
     <% @restaurant.reviews.each do |review| %>
       <div class="row">
         <div class="col-xs-3">
-          <% review.rating.times do %>
-            <i class="fa fa-star" aria-hidden="true"></i>
-          <% end %>
-          <% (5 - review.rating).times do %>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
+          <% unless review.rating.nil? %>
+            <% (review.rating).times do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %>
           <% end %>
         </div>
         <div class="col-xs-9">
-          <%= review.content%>
+          <%= review.content %>
         </div>
       </div>
       <hr>
@@ -32,7 +34,7 @@
 
     <div>
       <h3>Add a review</h3>
-      <%= render 'review_form' %>
+      <%= render 'reviews/form' %>
     </div>
   </div>
 </div>

@@ -4,8 +4,11 @@ class ReviewsController < ApplicationController
 
   def create
     @review = @restaurant.reviews.new(reviews_params)
-    @review.save
-    redirect_to restaurant_path(@restaurant)
+    if @review.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :template => 'restaurants/show'
+    end
   end
 
   private
