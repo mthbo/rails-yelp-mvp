@@ -1,0 +1,38 @@
+<% content_for :title do %>
+  <%= @restaurant.name %>
+<% end %>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+
+    <h1><%= @restaurant.name %></h1>
+
+    <p><i class="fa fa-cutlery" aria-hidden="true"></i>  <%= @restaurant.category %></p>
+    <p><i class="fa fa-map-marker" aria-hidden="true"></i>  <%= @restaurant.address %></p>
+    <p><i class="fa fa-phone" aria-hidden="true"></i>  <%= @restaurant.phone_number %></p>
+
+    <h2>Reviews</h2>
+
+    <% @restaurant.reviews.each do |review| %>
+      <div class="row">
+        <div class="col-xs-3">
+          <% review.rating.times do %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+          <% end %>
+        </div>
+        <div class="col-xs-9">
+          <%= review.content%>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+
+    <div>
+      <h3>Add a review</h3>
+      <%= render 'review_form' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.error_notification %>
+
+  <div><strong>Rating<strong></div>
+  <%= f.input :rating, collection: 0..5, as: :radio_buttons, label: false, item_label_class: "radio-inline", item_wrapper_tag: false %>
+  <%= f.input :content, as: :text %>
+
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,19 @@
+<% content_for :title do %>
+  <%= "Restaurant list" %>
+<% end %>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1>Restaurants</h1>
+
+    <div class="list-group">
+      <% @restaurants.each do |restaurant| %>
+        <%= link_to restaurant_path(restaurant), {class: "list-group-item"} do %>
+          <strong><%= restaurant.name %></strong>
+          <small> | <%= restaurant.category %></small>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
